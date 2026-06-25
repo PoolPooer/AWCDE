@@ -23,5 +23,3 @@ Current Status
 - ✅ Architecture baseline complete
 - 🚧 Workload signature specification in progress
 - ⏳ MVP implementation not yet started
-
-- 
