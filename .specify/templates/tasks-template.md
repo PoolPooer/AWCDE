@@ -250,3 +250,15 @@ With multiple developers:
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
+
+### Constitution-Driven Task Types (AWCDE)
+
+Expected task categories for AWCDE features:
+
+- Provider adapter tasks (JSONProvider, CSVProvider; future providers as stubs)
+- Signature schema and versioning tasks
+- WorkloadClassification layer tasks
+- KnowledgeBase rule loading and consultation tasks
+- Rule engine, explanation, and evidence output tasks
+- REST API route wiring tasks
+- Explicit out-of-scope verification tasks for Phase 1 exclusions

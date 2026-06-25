@@ -1,50 +1,109 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version: (none) → 1.0.0
+- Modified principles: all (initial ratification)
+- Added sections: Phase 1 Scope Exclusions, Development Workflow & Quality Gates
+- Removed sections: none
+- Templates: plan-template.md ✅ | spec-template.md ✅ | tasks-template.md ✅
+- Deferred TODOs: none
+-->
+
+# AWCDE Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. MVP First
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Every Phase 1 feature MUST deliver the smallest end-to-end slice that validates the
+core hypothesis: benchmark telemetry → workload signatures → explainable deployment
+recommendations.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+Phase 1 MUST NOT build platform infrastructure, multi-tenant services, or speculative
+features beyond what is required to validate that hypothesis.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: AWCDE exists to validate a hypothesis, not to ship a full platform.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. Single Application Architecture
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Phase 1 MUST be implemented as a single deployable application (monolith or modular
+monolith).
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+Phase 1 MUST NOT introduce microservices, separate ingestion/recommendation services,
+or inter-service messaging.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: Reduces operational complexity while the domain model and recommendation
+rules are still being proven.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### III. Explainable Rule-Based Recommendations (NON-NEGOTIABLE)
+
+All Phase 1 recommendations MUST use transparent, auditable rule-based logic.
+
+Every recommendation MUST include a human-readable explanation identifying which rules
+fired and which inputs mattered.
+
+Phase 1 MUST NOT use ML models, black-box scoring, or opaque heuristics unless
+explicitly approved via constitution amendment.
+
+**Rationale**: Trust and debuggability are prerequisites before any learned model is
+justified.
+
+### IV. Versioned Workload Signatures
+
+Every workload signature MUST have a schema version and stable identifier.
+
+Signatures MUST be reusable across runs: same benchmark input MUST produce the same
+signature, modulo intentional schema changes.
+
+Signature schema changes MUST follow semver: breaking changes bump MAJOR, additive
+fields bump MINOR.
+
+**Rationale**: Reusability and comparability across benchmark datasets is the core
+product artifact.
+
+### V. Realistic Data Ingestion First
+
+Phase 1 MUST ingest benchmark telemetry from JSON and CSV file inputs representing
+realistic AI inference benchmarks.
+
+Live telemetry streams, real-time collectors, and streaming pipelines are out of scope
+until file-based ingestion is proven.
+
+Ingestion MUST validate and normalize inputs against a documented schema before
+signature generation.
+
+**Rationale**: File-based benchmarks are reproducible and sufficient to validate the
+transformation pipeline.
+
+## Phase 1 Scope Exclusions
+
+The following are explicitly out of scope for Phase 1:
+
+- Autonomous deployment or actuation (recommendations only; no auto-apply)
+- Kubernetes controllers or cluster orchestration logic
+- Message queues, event buses, or async pipeline infrastructure
+- Production self-tuning or closed-loop optimization
+- Live telemetry streams (Prometheus, OpenTelemetry, etc.)
+- ML or black-box recommendation models
+
+## Development Workflow & Quality Gates
+
+- Features follow Spec Kit flow: `/speckit-specify` → `/speckit-plan` →
+  `/speckit-tasks` → `/speckit-implement`
+- Every plan MUST pass the Constitution Check gates before Phase 0 research and
+  re-check after Phase 1 design
+- Complexity beyond constitution constraints MUST be documented in the plan's
+  Complexity Tracking table
+- Tests are encouraged for ingestion, signature generation, classification, and
+  recommendation rules; not mandated as TDD unless requested per feature
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes ad-hoc decisions; amendments require
+  `/speckit-constitution` with documented rationale
+- Version semver: MAJOR = principle removal/redefinition; MINOR = new principle or
+  section; PATCH = clarifications
+- All PRs and plans MUST verify compliance with Phase 1 exclusions and explainability
+  requirements
+- Runtime guidance: feature plans under `specs/` and `.cursor/rules/specify-rules.mdc`
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-06-24 | **Last Amended**: 2026-06-24
