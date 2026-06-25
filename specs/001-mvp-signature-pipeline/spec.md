@@ -201,3 +201,21 @@ This feature complies with AWCDE constitution v1.0.0:
 - REST API is primary interface; CLI deferred to later phase
 - Phase 1 exclusions apply: no Kubernetes controllers, message queues, autonomous
   deployment, live telemetry streams, or production self-tuning
+
+## Long-Term Architecture Context
+
+AWCDE's long-term vision (see [architecture.md](./architecture.md)) includes three input
+source categories — benchmark data, runtime metrics, and production telemetry — feeding
+a Workload Characterization Engine and Deployment Decision Engine, with a continuous
+feedback loop updating workload profiles from production.
+
+**Phase 1 implements only**:
+- Benchmark data input (file-based JSON/CSV via Providers)
+- Workload Characterization Engine (signature derivation + classification)
+- Deployment Decision Engine (KnowledgeBase-driven recommendations)
+- Advisory outputs: model choice, runtime choice, infrastructure configuration
+
+**Phase 1 explicitly does NOT implement**:
+- Runtime metrics or production telemetry ingestion
+- Production deployment actuation
+- Continuous feedback loop or workload profile updates from production

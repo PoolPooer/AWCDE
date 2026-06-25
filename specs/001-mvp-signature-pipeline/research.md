@@ -4,6 +4,13 @@
 
 Phase 0 research resolving technical unknowns for the FastAPI backend-first architecture.
 
+> **Architecture context**: See [architecture.md](./architecture.md) for the long-term
+> AWCDE vision. AWCDE ultimately ingests benchmark data, runtime metrics, and production
+> telemetry. Phase 1 implements file-based benchmark input only. The Workload
+> Characterization Engine produces Workload Signature Profiles; the Deployment Decision
+> Engine maps them to model/runtime/infrastructure recommendations. Production
+> deployment and continuous feedback loops are future phases.
+
 ---
 
 ## 1. Application Interface

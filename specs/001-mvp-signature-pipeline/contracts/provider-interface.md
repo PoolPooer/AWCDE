@@ -5,6 +5,19 @@
 Telemetry sources are modeled as **Providers**. Each Provider adapts a specific
 benchmark or telemetry format into normalized `BenchmarkTelemetry`.
 
+> **Long-term architecture**: AWCDE is designed to ingest three input source
+> categories over its lifetime — **benchmark data**, **runtime metrics**, and
+> **production telemetry**. Phase 1 implements file-based benchmark Providers only.
+> See [architecture.md](../architecture.md).
+
+## Input Source Categories
+
+| Category | Phase 1 | Description |
+|---|---|---|
+| Benchmark Data | Implemented | Structured inference benchmark files (JSON, CSV) |
+| Runtime Metrics | Future | Serving metrics from inference runtimes |
+| Production Telemetry | Future | Operational traces and metrics from deployed workloads |
+
 ## Provider Protocol
 
 All Providers MUST implement:

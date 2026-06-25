@@ -2,16 +2,26 @@
 
 **Date**: 2026-06-24
 
+> **Architecture context**: In the long-term AWCDE vision, three input source categories
+> (benchmark data, runtime metrics, production telemetry) feed a Workload
+> Characterization Engine producing Workload Signature Profiles, which a Deployment
+> Decision Engine maps to model/runtime/infrastructure recommendations. Phase 1
+> implements benchmark file input only. See [architecture.md](./architecture.md).
+
 ## Pipeline Overview
 
+**Phase 1 MVP pipeline** (production deployment and feedback loop excluded):
+
 ```text
-Provider.ingest() → BenchmarkTelemetry
-                         ↓ derive
-                   WorkloadSignature (stored)
+Provider.ingest() → BenchmarkTelemetry          ← Benchmark Data input (Phase 1 only)
+                         ↓ derive                ← Workload Characterization Engine
+                   WorkloadSignature (stored)     ← Workload Signature Profile
                          ↓ classify
                    WorkloadClassification (stored)
-                         ↓ recommend (via KnowledgeBase)
-                   InfrastructureRecommendation (stored)
+                         ↓ recommend (via KnowledgeBase)  ← Deployment Decision Engine
+                   InfrastructureRecommendation (stored)  ← Model / Runtime / Infrastructure
+                         ↓
+                   [STOP — advisory only; no deployment or feedback loop]
 ```
 
 ---

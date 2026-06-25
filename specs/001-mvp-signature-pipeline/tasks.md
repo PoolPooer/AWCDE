@@ -187,3 +187,5 @@ Task: "Implement CSVProvider in src/awcde/providers/csv_provider.py"
 - Constitution-driven task types: Provider adapters, signature schema versioning, classification layer, KnowledgeBase rules, explainability/evidence
 - Recommendation engine MUST consult KnowledgeBase — no hard-coded reasoning in engine
 - CLI explicitly deferred; REST API is the Phase 1 interface
+- Long-term architecture (runtime metrics, production telemetry, feedback loop) documented
+  in [architecture.md](./architecture.md) — not Phase 1 implementation scope

@@ -6,6 +6,11 @@ Validation guide for the FastAPI backend. All scenarios use HTTP requests agains
 the running service. No implementation code included — this documents expected
 behavior for manual or integration validation.
 
+> **Scope note**: Phase 1 validates the benchmark-data path through the Workload
+> Characterization Engine and Deployment Decision Engine. Runtime metrics, production
+> telemetry, production deployment, and feedback loops are future phases. See
+> [architecture.md](./architecture.md).
+
 ## Prerequisites
 
 - AWCDE service running locally (default `http://localhost:8000`)

@@ -14,13 +14,36 @@ Provider adapters (JSON and CSV in Phase 1), derives versioned workload signatur
 explainable infrastructure recommendations by consulting a static KnowledgeBase.
 REST API is the primary interface; CLI is deferred to a later phase.
 
-**Pipeline flow**:
+See [architecture.md](./architecture.md) for long-term AWCDE vision and Phase 1
+boundaries. Phase 1 implements file-based benchmark input only; runtime metrics,
+production telemetry, deployment actuation, and feedback loops are future phases.
+
+**Phase 1 pipeline flow**:
 
 ```text
 BenchmarkTelemetry → WorkloadSignature → WorkloadClassification → InfrastructureRecommendation
          ↑                                      ↑
     Provider layer                      KnowledgeBase (static rules)
+   (JSON/CSV only)                      (Deployment Decision Engine)
 ```
+
+**Long-term input sources** (architecture context — Phase 1 implements benchmark
+data only):
+
+| Source | Phase 1 | Future Provider examples |
+|---|---|---|
+| Benchmark Data | JSONProvider, CSVProvider | GuideLLMProvider |
+| Runtime Metrics | Not implemented | vLLMProvider, PrometheusProvider |
+| Production Telemetry | Not implemented | OpenTelemetryProvider |
+
+**Engine mapping**:
+
+| Concept | Phase 1 module | Output |
+|---|---|---|
+| Workload Characterization Engine | `signatures/`, `classification/` | Workload Signature Profile |
+| Deployment Decision Engine | `recommendations/`, `knowledge/` | Model, runtime, infrastructure recommendations |
+
+Production deployment and continuous feedback loop are **not in Phase 1 scope**.
 
 ## Technical Context
 
@@ -68,12 +91,14 @@ extensible Provider registry for future telemetry sources
 
 ```text
 specs/001-mvp-signature-pipeline/
-├── plan.md              # This file
-├── research.md          # Phase 0 output
-├── data-model.md        # Phase 1 output
-├── quickstart.md        # Phase 1 output
-├── contracts/           # Phase 1 output
-└── tasks.md             # Phase 2 output (/speckit-tasks)
+├── spec.md
+├── plan.md
+├── architecture.md    # Long-term vision and Phase 1 boundaries
+├── research.md
+├── data-model.md
+├── quickstart.md
+├── contracts/
+└── tasks.md
 ```
 
 ### Source Code (repository root)
