@@ -9,9 +9,11 @@ This document defines where AWCDE fits within the modern AI infrastructure ecosy
 ## Existing Ecosystem
 
 Benchmarking
+
 ↓
 
 Monitoring
+
 ↓
 
 Inference
@@ -42,29 +44,17 @@ Other systems then consume that workload intelligence.
 
 ## Relationship to Existing Technologies
 
-GuideLLM
+GuideLLM - Measures performance.
 
-Measures performance.
+Prometheus - Measures infrastructure.
 
-Prometheus
+vLLM - Executes inference.
 
-Measures infrastructure.
+OpenRouter MCP - Routes inference requests.
 
-vLLM
+Kubernetes - Schedules workloads.
 
-Executes inference.
-
-OpenRouter MCP
-
-Routes inference requests.
-
-Kubernetes
-
-Schedules workloads.
-
-AWCDE
-
-Characterizes workloads.
+AWCDE - Characterizes workloads.
 
 ---
 
