@@ -2,11 +2,11 @@
 
 ## Long-Term Vision
 
-AWCDE exists to transform AI inference telemetry into reusable workload intelligence that enables explainable, evidence-based infrastructure decisions throughout the AI deployment lifecycle.
+AWCDE exists to make AI inference telemetry easier to understand.
 
-Rather than requiring engineers to repeatedly interpret benchmark reports, runtime metrics, and operational telemetry, AWCDE seeks to capture the behavioural characteristics of AI workloads in a form that can be consistently reused across deployments, environments, and future decision making.
+Modern benchmarking and observability tools expose large volumes of valuable performance data, but interpreting that data often requires specialist knowledge of AI inference systems. AWCDE transforms heterogeneous benchmark results into standardized, explainable workload intelligence that helps developers understand how an AI workload behaves and what those behaviours imply for deployment.
 
-The long-term objective is to make workload understanding a persistent capability rather than a manual engineering exercise.
+Rather than replacing existing benchmarking tools, AWCDE provides a common interpretation layer that standardizes workload understanding while preserving access to the original telemetry.
 
 ---
 
@@ -14,30 +14,43 @@ The long-term objective is to make workload understanding a persistent capabilit
 
 The primary artifact produced by AWCDE is the **Workload Signature**.
 
-A Workload Signature represents the behavioural characteristics of an AI inference workload, independent of any specific benchmark framework, inference runtime, hardware platform, or orchestration technology.
+A Workload Signature is a standardized, explainable summary of workload behaviour derived from AI inference telemetry.
 
-Infrastructure recommendations are one application of this artifact rather than its sole purpose.
+Rather than exposing raw benchmark metrics as the primary output, AWCDE interprets those metrics to produce a reusable behavioural profile that captures the characteristics most relevant to workload-aware decision making.
 
-By separating workload characterization from deployment strategy, AWCDE creates a reusable layer of workload intelligence that can support multiple consumers, including:
+The Workload Signature remains independent of any specific benchmarking framework, inference runtime, hardware platform, or orchestration technology, allowing the same workload understanding to be reused across multiple environments.
 
-- Infrastructure recommendation engines
-- Scheduling frameworks
-- Capacity planning tools
-- Cost optimization systems
+The Workload Signature forms the foundation for capabilities including:
+
+- Workload-aware deployment guidance
+- Infrastructure planning
+- Runtime selection
+- Capacity planning
+- Cost optimization
 - Future adaptive optimization systems
 
 ---
 
 ## Future Vision
 
-The initial implementation of AWCDE focuses on transforming benchmark telemetry into Workload Signatures and explainable infrastructure recommendations.
+The initial implementation of AWCDE focuses on structured benchmark results produced by existing AI benchmarking tools.
 
-As the platform evolves, additional telemetry sources—including runtime metrics and production observability—will enrich workload knowledge throughout an application's lifecycle.
+Future versions will extend this behavioural model using runtime telemetry, infrastructure metrics, and production observability to build increasingly rich and reusable workload knowledge throughout an application's lifecycle.
 
-The long-term vision is to enable AI infrastructure that continuously adapts to changing workload characteristics using reusable workload intelligence and transparent, evidence-based reasoning rather than manual interpretation alone.
+As additional telemetry sources become available, AWCDE will continue to produce a consistent behavioural understanding regardless of where the telemetry originated.
+
+---
+
+## Guiding Principles
+
+- Benchmarking tools measure performance.
+- AWCDE standardizes the interpretation of that performance.
+- Behavioural understanding should outlive individual benchmark runs.
+- Every workload-aware decision should be explainable and traceable back to supporting telemetry.
+- Developers should not need to become inference performance experts to understand benchmark results.
 
 ---
 
 ## Guiding Principle
 
-> **Telemetry is transient. Workload knowledge shouldn't be.**
+> **Telemetry is transient. Workload understanding should persist.**
