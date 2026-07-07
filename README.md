@@ -2,100 +2,118 @@
 
 **Adaptive Workload Characterization and Deployment Engine**
 
-AWCDE is a research project exploring how AI inference telemetry can be transformed into reusable workload intelligence and explainable infrastructure recommendations.
+AWCDE is an open research project that transforms AI inference telemetry into standardized, explainable workload intelligence.
 
-Rather than requiring engineers to manually interpret benchmark results, runtime metrics, and operational telemetry, AWCDE derives behavioural workload signatures that characterize how an inference workload behaves. These signatures are then used to generate transparent deployment recommendations for models, runtimes, hardware, and infrastructure configuration.
+Rather than requiring developers to manually interpret benchmark reports, runtime metrics, and performance dashboards, AWCDE ingests telemetry from existing AI benchmarking tools, normalizes heterogeneous metrics into a common behavioural model, and produces simplified workload signatures that describe how an inference workload behaves.
+
+These workload signatures provide an explainable foundation for workload-aware guidance, helping developers understand benchmark results and make informed decisions about model selection, runtime configuration, hardware suitability, and deployment strategy.
 
 ---
 
-## Vision
+# Vision
 
 ```
-Telemetry
-      │
-      ▼
-Workload Characterization
-      │
-      ▼
+Benchmark Results
+        │
+        ▼
+Telemetry Normalization
+        │
+        ▼
+Behavioural Interpretation
+        │
+        ▼
 Workload Signature
-      │
-      ▼
-Workload Classification
-      │
-      ▼
+        │
+        ▼
 Knowledge Base
-      │
-      ▼
-Infrastructure Recommendation
+        │
+        ▼
+Workload-aware Guidance
 ```
 
-The long-term vision extends this pipeline with production telemetry and continuous feedback, allowing recommendations to evolve as workloads change over time.
+The long-term vision extends this pipeline with runtime telemetry, production observability, and continuous feedback, allowing workload guidance to improve as systems evolve over time.
 
 ---
 
-## Current Status
+# Problem Statement
 
-### ✅ Phase 0 — Architecture & Specification
+Modern AI benchmarking tools expose large volumes of valuable telemetry, but interpreting those results often requires specialist knowledge of inference systems.
+
+Metrics such as Time to First Token (TTFT), Throughput, Inter-Token Latency (ITL), and latency percentiles provide important insight into workload behaviour, yet they rarely explain what those metrics imply for real-world deployment decisions.
+
+AWCDE addresses this problem by standardizing the interpretation of AI inference telemetry rather than replacing existing benchmarking tools. It provides a common behavioural model that transforms complex benchmark results into explainable workload intelligence while preserving access to the original telemetry.
+
+---
+
+# Current Status
+
+## ✅ Phase 0 — Architecture & Specification
 
 Completed:
 
-* Repository initialization
-* Spec Kit integration
-* Project constitution
-* MVP specification
-* Architecture baseline
-* Data model
-* API and provider contracts
-* Research and planning documentation
+- Repository initialization
+- Project governance
+- Spec Kit integration
+- Project constitution
+- MVP specification
+- Core architecture
+- Data model
+- API and provider contracts
+- Research and planning documentation
 
-### 🚧 Phase 1 — Behavioural Model
+## 🚧 Phase 1 — Behavioural Model
 
 Currently in progress:
 
-* Workload Signature Specification
-* Recommendation Engine design
-* Knowledge Base design
-* Telemetry Provider architecture
-* Architecture Decision Records (ADRs)
+- Workload Signature specification
+- Workload Dimension definitions
+- Behavioural model
+- Telemetry normalization model
+- Knowledge Base architecture
+- Provider architecture
+- Architecture Decision Records (ADRs)
 
-### Future Phases
+## Future Phases
 
-* FastAPI backend
-* Provider implementations
-* Signature generation engine
-* Classification engine
-* Recommendation engine
-* Production feedback loop
+- Telemetry provider implementations
+- FastAPI backend
+- Signature generation engine
+- Knowledge Base implementation
+- Guidance engine
+- Runtime telemetry support
+- Production feedback loop
 
 ---
 
-## Repository Structure
+# Repository Structure
 
 ```
 .specify/      Spec-driven development workflow
 specs/         MVP specifications and implementation planning
 docs/
 ├── adr/           Architecture Decision Records
-├── architecture/  Long-term system design
-├── research/      Supporting research and references
+├── architecture/  System architecture and behavioural model
+├── research/      Research, surveys and ecosystem analysis
 └── examples/      Example telemetry, signatures and recommendations
 ```
 
 ---
 
-## Design Principles
+# Design Principles
 
-* Explainable recommendations over opaque decision making
-* Behavioural workload characterization rather than benchmark reporting
-* Deterministic workload signature generation
-* Provider-based telemetry ingestion
-* Single-application MVP before platform expansion
-* Architecture-first, implementation-second
+- Standardize interpretation rather than reinvent benchmarking.
+- Explain workload behaviour rather than expose raw metrics.
+- Preserve traceability from guidance back to original telemetry.
+- Keep Workload Signatures deterministic, explainable, and reproducible.
+- Support multiple benchmarking and telemetry providers through a common abstraction.
+- Build an architecture-first MVP before expanding into a distributed platform.
 
 ---
 
-## Project Status
+# Project Status
 
-This repository currently contains the architectural foundation of AWCDE.
+AWCDE is currently focused on establishing the architectural and behavioural foundations of the platform.
 
-Implementation of the MVP has intentionally not started while the behavioural model and workload signature specification are being refined.
+The initial MVP will support structured benchmark results from existing AI benchmarking tools before expanding into live runtime telemetry and production observability.
+
+Implementation intentionally follows architecture to ensure that the behavioural model remains provider-independent, explainable, and extensible.
