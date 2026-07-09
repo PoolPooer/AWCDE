@@ -4,7 +4,7 @@
 
 This document captures the research strategy for the AWCDE MVP.
 
-It identifies the assumptions that require validation, the evidence needed to support architectural decisions, and the constraints that intentionally limit the scope of the initial implementation.
+It identifies the assumptions that must be validated, the evidence needed to support architectural decisions, and the constraints that intentionally limit the scope of the initial implementation.
 
 Unlike the architecture documentation, which describes established design decisions, this document records the reasoning behind those decisions before they are formally adopted.
 
@@ -91,7 +91,7 @@ A benchmark library is outside the scope of the MVP. Such a repository is intend
 
 A Workload Signature describes workload behaviour independently of any specific deployment platform.
 
-Hardware capabilities should instead be treated as deployment context that influences workload-aware guidance.
+Hardware capabilities are considered deployment context that influences workload-aware guidance.
 
 Future versions of AWCDE may support hardware profiles describing resources such as:
 
@@ -121,11 +121,11 @@ Optimization objectives describe what the user wants to optimize.
 
 These concerns should remain independent.
 
-- Lowest latency
-- Highest throughput
-- Lowest operating cost
-- Lowest energy consumption
-- Highest hardware utilization
+- Minimize latency
+- Maximize throughput
+- Minimize operating cost
+- Minimize energy consumption
+- Maximize hardware utilization
 - Balanced optimization
 
 These optimization objectives influence deployment guidance but do not alter the underlying Workload Signature.
@@ -161,6 +161,8 @@ The MVP intentionally prioritizes validation over feature completeness.
 Its purpose is to demonstrate that AI inference telemetry from a limited number of benchmarking frameworks can be transformed into standardized, explainable workload understanding.
 
 Capabilities such as runtime telemetry, hardware profiling, community benchmark repositories, optimization objectives, and production observability are considered future extensions rather than MVP requirements.
+
+The MVP intentionally favors architectural clarity over breadth of functionality.
 
 # MVP Success Criteria
 
