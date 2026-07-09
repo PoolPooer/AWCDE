@@ -12,7 +12,7 @@ Rather than replacing existing benchmarking tools, AWCDE provides a common inter
 
 ## Platform Vision
 
-The primary artifact produced by AWCDE is the **Workload Signature**.
+The primary output of AWCDE is the Workload Signature.
 
 A Workload Signature is a standardized, explainable summary of workload behaviour derived from AI inference telemetry.
 
@@ -25,7 +25,7 @@ The Workload Signature forms the foundation for capabilities including:
 - Workload-aware deployment guidance
 - Infrastructure planning
 - Runtime selection
-- Capacity planning
+- Capacity and infrastructure planning
 - Cost optimization
 - Future adaptive optimization systems
 
@@ -37,7 +37,7 @@ The initial implementation of AWCDE focuses on structured benchmark results prod
 
 Future versions will extend this behavioural model using runtime telemetry, infrastructure metrics, and production observability to build increasingly rich and reusable workload knowledge throughout an application's lifecycle.
 
-As additional telemetry sources become available, AWCDE will continue to produce a consistent behavioural understanding regardless of where the telemetry originated.
+As additional telemetry sources become available, AWCDE will continue to separate workload understanding from deployment-specific optimization objectives.
 
 ---
 
@@ -51,6 +51,6 @@ As additional telemetry sources become available, AWCDE will continue to produce
 
 ---
 
-## Guiding Principle
+## Core Principle
 
 > **Telemetry is transient. Workload understanding should persist.**

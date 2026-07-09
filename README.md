@@ -8,12 +8,14 @@ Rather than requiring developers to manually interpret benchmark reports, runtim
 
 These workload signatures provide an explainable foundation for workload-aware guidance, helping developers understand benchmark results and make informed decisions about model selection, runtime configuration, hardware suitability, and deployment strategy.
 
+AWCDE does not benchmark AI systems. It interprets the results produced by existing benchmarking and observability tools.
+
 ---
 
 # Vision
 
 ```
-Benchmark Results
+AI Benchmark Telemetry
         │
         ▼
 Telemetry Normalization
@@ -91,10 +93,14 @@ Currently in progress:
 .specify/      Spec-driven development workflow
 specs/         MVP specifications and implementation planning
 docs/
-├── adr/           Architecture Decision Records
-├── architecture/  System architecture and behavioural model
-├── research/      Research, surveys and ecosystem analysis
-└── examples/      Example telemetry, signatures and recommendations
+├── adr/           
+      Architecture Decision Records
+├── architecture/
+      Core behavioural model and system architecture
+├── research/      
+      Research strategy, ecosystem evaluation and design rationale
+└── examples/      
+      Example telemetry, signatures and recommendations
 ```
 
 ---

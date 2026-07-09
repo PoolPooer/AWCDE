@@ -4,7 +4,7 @@
 
 Modern AI benchmarking and observability tools generate large volumes of AI inference telemetry.
 
-Benchmarking frameworks such as GuideLLM and NVIDIA GenAI-Perf expose detailed performance metrics including latency, throughput, concurrency, request characteristics, and resource utilization. Runtime and production monitoring systems provide additional operational insight throughout the lifecycle of an AI application.
+Benchmarking frameworks such as GuideLLM and NVIDIA GenAI-Perf expose detailed performance metrics including latency, throughput, concurrency, request characteristics, and resource utilization. Runtime telemetry and production observability systems provide additional operational insight throughout the lifecycle of an AI application.
 
 Collectively, these tools provide a comprehensive view of workload performance.
 
@@ -14,7 +14,7 @@ Collectively, these tools provide a comprehensive view of workload performance.
 
 Although AI inference telemetry is increasingly available, interpreting it remains a specialist task.
 
-Developers are expected to understand dozens of performance metrics—including concepts such as Time to First Token (TTFT), Inter-Token Latency (ITL), throughput, latency percentiles, batching behaviour, and concurrency—in order to determine what those results imply for real-world deployments.
+Developers are expected to interpret dozens of provider-specific performance metrics, including concepts such as Time to First Token (TTFT), Inter-Token Latency (ITL), throughput, latency percentiles, batching behaviour, and concurrency—in order to determine what those results imply for real-world deployments.
 
 Existing benchmarking tools are excellent at measuring performance, but they generally leave interpretation to the user.
 
@@ -40,6 +40,7 @@ As a result:
 - Infrastructure decisions rely heavily on individual expertise.
 - Deployment decisions become difficult to explain or reproduce.
 - Organizations struggle to build reusable knowledge from benchmark results.
+- Comparing benchmark results produced by different tools becomes unnecessarily difficult.
 
 ---
 
@@ -47,6 +48,6 @@ As a result:
 
 There is an opportunity to standardize the interpretation of AI inference telemetry.
 
-Rather than replacing existing benchmarking tools, AWCDE transforms heterogeneous benchmark results into a common behavioural model that is easier to understand, explain, and reuse.
+Rather than replacing existing benchmarking tools, AWCDE ransforms heterogeneous AI inference telemetry into a standardized representation of workload behaviour that is easier to understand, explain, and reuse.
 
 By producing standardized Workload Signatures that preserve traceability back to the original telemetry, AWCDE enables developers to understand workload behaviour more quickly while providing a consistent foundation for workload-aware guidance and future automation.
