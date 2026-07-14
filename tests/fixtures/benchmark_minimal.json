@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "latency_p50_ms": 10.0,
+      "latency_p99_ms": 30.0,
+      "throughput_rps": 500.0,
+      "peak_memory_gb": 8.0,
+      "avg_memory_gb": 6.0,
+      "request_arrival_pattern": "steady",
+      "context_length_p50": 256,
+      "context_length_p99": 512,
+      "concurrency_level": 8,
+      "accelerator_type": "CPU",
+      "gpu_utilization_pct": 0.0,
+      "modality": "text"
+    }
+  ]
+}
