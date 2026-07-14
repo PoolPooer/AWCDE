@@ -1,0 +1,83 @@
+schema_version: "1.0"
+
+workload:
+  id: "RW-001"
+  name: "Interactive Chat"
+  prompt_file: "prompt.txt"
+  description: "Low-concurrency interactive chat-completion workload"
+
+run:
+  run_id: "TBD"
+  provider: "TBD"
+  provider_version: "TBD"
+  started_at: "TBD"
+  completed_at: "TBD"
+  warmup_requests: 5
+  measured_requests: 100
+  status: "planned"
+  notes: ""
+
+model:
+  name: "TBD"
+  revision: "TBD"
+  quantization: "none"
+  dtype: "TBD"
+  tokenizer: "TBD"
+
+runtime:
+  name: "vLLM"
+  version: "TBD"
+  command: "TBD"
+  endpoint: "http://localhost:8000/v1/chat/completions"
+  endpoint_type: "openai-chat-completions"
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_output_tokens: 256
+  streaming: true
+  seed: "TBD"
+  request_timeout_seconds: 120
+
+load:
+  concurrency: 1
+  request_rate: "unbounded"
+  request_distribution: "fixed"
+  dataset: "single canonical prompt"
+
+host:
+  operating_system: "Windows 11"
+  linux_environment: "WSL2"
+  linux_distribution: "Ubuntu"
+  linux_distribution_version: "TBD"
+
+hardware:
+  cpu_model: "AMD Threadripper - exact model TBD"
+  cpu_cores: "TBD"
+  system_memory_gb: "TBD"
+  gpu_model: "NVIDIA GeForce RTX 5090"
+  gpu_memory_gb: "TBD"
+  storage: "TBD"
+
+software:
+  python_version: "TBD"
+  nvidia_driver_version: "TBD"
+  cuda_version: "TBD"
+  pytorch_version: "TBD"
+
+environment:
+  background_workloads_disabled: true
+  gpu_persistence_mode: "TBD"
+  power_limit_watts: "TBD"
+  ambient_or_thermal_notes: ""
+  additional_notes: ""
+
+artifacts:
+  benchmark_command: "command.txt"
+  terminal_log: "stdout.log"
+  raw_output: "TBD"
+  provider_configuration: "TBD"
+
+deviations:
+  provider_specific_changes: []
+  known_issues: []
