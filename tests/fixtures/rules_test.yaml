@@ -1,0 +1,107 @@
+- rule_id: kb-latency-001
+  version: "1.0.0"
+  description: Latency-critical workloads need low-latency runtime and real-time scheduling
+  conditions:
+    - field: classification.primary_category
+      operator: eq
+      value: latency_critical
+  recommendations:
+    model_family: latency-optimized-small
+    runtime: vllm-low-latency
+    hardware_suitability: gpu-dedicated-single
+    deployment_topology: single-node-dedicated
+    scheduling_policy: real-time-priority
+  rationale_template: >
+    Workload classified as {classification.primary_category} with latency
+    sensitivity score {signature.latency_sensitivity.score}. Rule {rule_id}
+    recommends low-latency runtime configuration.
+
+- rule_id: kb-throughput-001
+  version: "1.0.0"
+  description: Throughput-optimized workloads benefit from batching and horizontal scale
+  conditions:
+    - field: classification.primary_category
+      operator: eq
+      value: throughput_optimized
+  recommendations:
+    model_family: throughput-optimized-large
+    runtime: vllm-batched
+    hardware_suitability: gpu-multi-instance
+    deployment_topology: multi-replica-balanced
+    scheduling_policy: batch-queue
+  rationale_template: >
+    Workload classified as {classification.primary_category} with throughput
+    orientation score {signature.throughput_orientation.score}. Rule {rule_id}
+    recommends batched processing configuration.
+
+- rule_id: kb-memory-001
+  version: "1.0.0"
+  description: Memory-intensive workloads require high-memory nodes
+  conditions:
+    - field: classification.primary_category
+      operator: eq
+      value: memory_intensive
+  recommendations:
+    model_family: memory-efficient-quantized
+    runtime: vllm-paged-attention
+    hardware_suitability: high-memory-gpu
+    deployment_topology: single-node-high-memory
+    scheduling_policy: memory-aware-scheduling
+  rationale_template: >
+    Workload classified as {classification.primary_category} with memory
+    intensity score {signature.memory_intensity.score}. Rule {rule_id}
+    recommends high-memory configuration.
+
+- rule_id: kb-burst-001
+  version: "1.0.0"
+  description: Burst-tolerant workloads benefit from autoscaling
+  conditions:
+    - field: classification.primary_category
+      operator: eq
+      value: burst_tolerant
+  recommendations:
+    model_family: general-purpose
+    runtime: vllm-standard
+    hardware_suitability: gpu-elastic-pool
+    deployment_topology: auto-scaling-group
+    scheduling_policy: elastic-burst
+  rationale_template: >
+    Workload classified as {classification.primary_category} with burst
+    behaviour score {signature.burst_behaviour.score}. Rule {rule_id}
+    recommends elastic scaling configuration.
+
+- rule_id: kb-hardware-001
+  version: "1.0.0"
+  description: Hardware-specialized workloads need specific accelerator types
+  conditions:
+    - field: classification.primary_category
+      operator: eq
+      value: hardware_specialized
+  recommendations:
+    model_family: hardware-optimized
+    runtime: vllm-hardware-tuned
+    hardware_suitability: dedicated-accelerator
+    deployment_topology: pinned-node-affinity
+    scheduling_policy: hardware-affinity
+  rationale_template: >
+    Workload classified as {classification.primary_category} with hardware
+    affinity score {signature.hardware_affinity.score}. Rule {rule_id}
+    recommends dedicated accelerator configuration.
+
+- rule_id: kb-general-001
+  version: "1.0.0"
+  description: General-purpose workloads use balanced configuration
+  conditions:
+    - field: classification.primary_category
+      operator: eq
+      value: general_purpose
+  recommendations:
+    model_family: general-purpose
+    runtime: vllm-standard
+    hardware_suitability: gpu-shared-pool
+    deployment_topology: multi-replica-balanced
+    scheduling_policy: fair-share
+  rationale_template: >
+    Workload classified as {classification.primary_category} with no single
+    dominant dimension. Rule {rule_id} recommends balanced general-purpose
+    configuration.

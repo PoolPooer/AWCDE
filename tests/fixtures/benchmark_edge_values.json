@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "latency_p50_ms": 0.0,
+      "latency_p99_ms": 0.0,
+      "throughput_rps": 0.0,
+      "peak_memory_gb": 0.0,
+      "avg_memory_gb": 0.0,
+      "request_arrival_pattern": "steady",
+      "context_length_p50": 0,
+      "context_length_p99": 0,
+      "concurrency_level": 1,
+      "accelerator_type": "CPU",
+      "gpu_utilization_pct": 0.0,
+      "modality": "text"
+    },
+    {
+      "latency_p50_ms": 10000.0,
+      "latency_p99_ms": 50000.0,
+      "throughput_rps": 100000.0,
+      "peak_memory_gb": 1000.0,
+      "avg_memory_gb": 800.0,
+      "request_arrival_pattern": "bursty",
+      "context_length_p50": 100000,
+      "context_length_p99": 200000,
+      "concurrency_level": 1024,
+      "accelerator_type": "H100",
+      "gpu_utilization_pct": 100.0,
+      "modality": "multimodal"
+    }
+  ]
+}
