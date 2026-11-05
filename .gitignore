@@ -3,3 +3,8 @@
 __pycache__/
 .env
 .venv/
+
+# Local experimental outputs; publish selected sanitized evidence deliberately.
+benchmarks/runs/
+artifacts/
+.pytest_cache/

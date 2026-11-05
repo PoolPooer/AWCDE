@@ -1,109 +1,35 @@
-<!--
-Sync Impact Report
-- Version: (none) → 1.0.0
-- Modified principles: all (initial ratification)
-- Added sections: Phase 1 Scope Exclusions, Development Workflow & Quality Gates
-- Removed sections: none
-- Templates: plan-template.md ✅ | spec-template.md ✅ | tasks-template.md ✅
-- Deferred TODOs: none
--->
-
 # AWCDE Constitution
 
-## Core Principles
+Version: 2.0.0 | Originally ratified: 2026-06-24 | Revised: 2026-11-04
 
-### I. MVP First
+## Scope and precedence
 
-Every Phase 1 feature MUST deliver the smallest end-to-end slice that validates the
-core hypothesis: benchmark telemetry → workload signatures → explainable deployment
-recommendations.
+This revision implements the evidence-first POC direction in ADR-0010. It supersedes v1.0.0 and the archived benchmark-to-recommendation specification. Read this file with `specs/002-evidence-poc/spec.md`. Archived documents are historical material, not active instructions.
 
-Phase 1 MUST NOT build platform infrastructure, multi-tenant services, or speculative
-features beyond what is required to validate that hypothesis.
+## Principles
 
-**Rationale**: AWCDE exists to validate a hypothesis, not to ship a full platform.
+1. Validate one bounded inference question before expanding the architecture. A negative result is valid.
+2. Separate observed measurements, inferred findings and explicit customer requirements. Retain hardware, model, runtime and protocol context.
+3. Check actual workload and measurement equivalence before comparing tools. A common schema alone is insufficient.
+4. Preserve source artifacts, units, metric definitions, missingness and transformation versions. Make every finding traceable and reanalysis reproducible.
+5. Use transparent calculations or rules and document uncertainty. Withhold conclusions when required evidence is absent. Do not fabricate confidence scores, causality or hardware independence.
+6. Reuse existing tools and schemas where they meet the demonstrated requirement. Two file formats do not count as two independent benchmark tools.
+7. Keep implementation small: a local script or CLI analyzing saved evidence. Capturing server telemetry during controlled experiments is permitted; a production streaming platform is out of scope.
 
-### II. Single Application Architecture
+## Exclusions
 
-Phase 1 MUST be implemented as a single deployable application (monolith or modular
-monolith).
+No recommendations, classifiers with fixed workload categories, mandatory eight-dimensional signatures, knowledge base, API service, UI, scheduler, placement engine, autonomous actuation, production feedback loop or TTS implementation in this POC.
 
-Phase 1 MUST NOT introduce microservices, separate ingestion/recommendation services,
-or inter-service messaging.
+## Workflow and quality gates
 
-**Rationale**: Reduces operational complexity while the domain model and recommendation
-rules are still being proven.
+Use specification, plan, tasks and implementation in that order. Review the protocol and freeze analysis criteria before validation runs. Pilot observations may inform thresholds but cannot also serve as independent validation. Record later protocol changes as new versions.
 
-### III. Explainable Rule-Based Recommendations (NON-NEGOTIABLE)
-
-All Phase 1 recommendations MUST use transparent, auditable rule-based logic.
-
-Every recommendation MUST include a human-readable explanation identifying which rules
-fired and which inputs mattered.
-
-Phase 1 MUST NOT use ML models, black-box scoring, or opaque heuristics unless
-explicitly approved via constitution amendment.
-
-**Rationale**: Trust and debuggability are prerequisites before any learned model is
-justified.
-
-### IV. Versioned Workload Signatures
-
-Every workload signature MUST have a schema version and stable identifier.
-
-Signatures MUST be reusable across runs: same benchmark input MUST produce the same
-signature, modulo intentional schema changes.
-
-Signature schema changes MUST follow semver: breaking changes bump MAJOR, additive
-fields bump MINOR.
-
-**Rationale**: Reusability and comparability across benchmark datasets is the core
-product artifact.
-
-### V. Realistic Data Ingestion First
-
-Phase 1 MUST ingest benchmark telemetry from JSON and CSV file inputs representing
-realistic AI inference benchmarks.
-
-Live telemetry streams, real-time collectors, and streaming pipelines are out of scope
-until file-based ingestion is proven.
-
-Ingestion MUST validate and normalize inputs against a documented schema before
-signature generation.
-
-**Rationale**: File-based benchmarks are reproducible and sufficient to validate the
-transformation pipeline.
-
-## Phase 1 Scope Exclusions
-
-The following are explicitly out of scope for Phase 1:
-
-- Autonomous deployment or actuation (recommendations only; no auto-apply)
-- Kubernetes controllers or cluster orchestration logic
-- Message queues, event buses, or async pipeline infrastructure
-- Production self-tuning or closed-loop optimization
-- Live telemetry streams (Prometheus, OpenTelemetry, etc.)
-- ML or black-box recommendation models
-
-## Development Workflow & Quality Gates
-
-- Features follow Spec Kit flow: `/speckit-specify` → `/speckit-plan` →
-  `/speckit-tasks` → `/speckit-implement`
-- Every plan MUST pass the Constitution Check gates before Phase 0 research and
-  re-check after Phase 1 design
-- Complexity beyond constitution constraints MUST be documented in the plan's
-  Complexity Tracking table
-- Tests are encouraged for ingestion, signature generation, classification, and
-  recommendation rules; not mandated as TDD unless requested per feature
+Validate ingestion, units, metric semantics, provenance, abstention, comparability and repeatability. Compare against simple metric summaries and explicit comparability rules. Do not build abstractions solely to satisfy historical contracts.
 
 ## Governance
 
-- This constitution supersedes ad-hoc decisions; amendments require
-  `/speckit-constitution` with documented rationale
-- Version semver: MAJOR = principle removal/redefinition; MINOR = new principle or
-  section; PATCH = clarifications
-- All PRs and plans MUST verify compliance with Phase 1 exclusions and explainability
-  requirements
-- Runtime guidance: feature plans under `specs/` and `.cursor/rules/specify-rules.mdc`
+Record scope changes and their rationale in an ADR and update dependent templates and specifications together. Major revisions change principles or scope; minor revisions add compatible requirements; patches clarify wording. No amendment is evidence that experiments have passed.
 
-**Version**: 1.0.0 | **Ratified**: 2026-06-24 | **Last Amended**: 2026-06-24
+## Revision impact
+
+Replaces the mandatory FastAPI, signatures, classifications and recommendations pipeline. Permits experimental server telemetry capture. Updates the plan and spec template checks. Preserves the previous constitution unchanged under `archive/2026-07-14/.specify/memory/constitution.md`.

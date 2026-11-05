@@ -81,10 +81,10 @@
 ## Requirements *(mandatory)*
 
 <!--
-  Constitution Alignment (AWCDE): Success criteria for recommendations MUST include
-  explainability acceptance scenarios. Features involving signatures MUST specify
-  versioning expectations. Phase 1 data sources MUST specify JSON/CSV file formats
-  via Provider adapters. Classification and KnowledgeBase concepts apply where relevant.
+  Constitution Alignment (AWCDE): State the bounded research question, evidence
+  requirements, comparability checks, uncertainty and abstention behaviour.
+  Define repeatability and added-value checks. Preserve environment context.
+  Do not assume fixed signature dimensions or deployment recommendations.
 -->
 
 ### Functional Requirements

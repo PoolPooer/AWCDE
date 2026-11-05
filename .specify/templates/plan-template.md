@@ -40,12 +40,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [ ] **MVP scope**: Feature delivers a minimal end-to-end slice; no platform/multi-service scope
-- [ ] **Single application**: No microservices, message queues, or separate services proposed
-- [ ] **Explainability**: All recommendations include rule-based, human-readable explanations; no ML/black-box
-- [ ] **Versioned signatures**: Workload signature schema is versioned; reuse/comparability addressed
-- [ ] **File ingestion first**: Data source is JSON/CSV benchmark files via Providers; no live telemetry streams
-- [ ] **Phase 1 exclusions**: No autonomous deployment, K8s controllers, MQ, or production self-tuning
+- [ ] Bounded POC question and exclusions respected.
+- [ ] Workload equivalence and metric semantics checked.
+- [ ] Evidence provenance, environment context and missingness preserved.
+- [ ] Uncertainty and insufficient-evidence behaviour specified.
+- [ ] Pilot and validation separated; criteria frozen before validation.
+- [ ] Added value assessed against simple baselines.
+- [ ] No speculative API, knowledge base, recommendations or universal signature.
 
 ## Project Structure
 
