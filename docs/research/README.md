@@ -1,16 +1,5 @@
-# Research
+# Active research
 
-This directory contains supporting research, references, and exploratory work
-that informs the evolution of AWCDE.
+Start with the [charter](poc-charter.md), [repository audit](repository-audit.md), [environment selection](reference-environment.md) and [related-work evaluation](related-work.md). The [experiment protocol](../../benchmarks/experiments/EXP-001-load-response/protocol.md) records unresolved parameters.
 
-Typical contents include:
-
-- Patent notes
-- Prior art investigations
-- Benchmark analysis
-- Academic references
-- Experiment results
-- Future ideas and investigations
-
-Unlike the architecture documentation, these documents are exploratory and may
-not represent final implementation decisions.
+July research remains in the archive. It is not current evidence for platform independence or novelty. No empirical results are available yet.

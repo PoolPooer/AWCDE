@@ -1,0 +1,52 @@
+# Draft metadata aid, not a validated canonical schema. Null means unresolved.
+metadata_template_version: "0.1.0"
+evidence_kind: planned
+experiment_id: EXP-001
+protocol_version: null
+run_id: null
+phase: null # pilot, validation or negative_control
+started_at_utc: null
+completed_at_utc: null
+tool: {name: null, version: null, command_file: null, config_file: null}
+environment:
+  hardware: null
+  operating_system: null
+  driver: null
+  client_placement: null
+  runtime_version_or_digest: null
+  runtime_command_file: null
+  model_revision: null
+  tokenizer_revision: null
+  quantization: null
+  background_activity: null
+workload:
+  corpus_file: null
+  corpus_sha256: null
+  actual_input_length_summary: null
+  actual_output_length_summary: null
+  generation_config_file: null
+  prefix_cache_policy: null
+load:
+  model: open_loop
+  target_requests_per_second: null
+  achieved_requests_per_second: null
+  client_concurrency_cap: null
+  duration_seconds: null
+  repetition: null
+  warmup_policy: null
+  reset_policy: null
+measurement:
+  definitions_file: null
+  token_count_source: null
+  streaming: null
+  window_start_utc: null
+  window_end_utc: null
+  failure_inclusion_policy: null
+  retry_timeout_policy: null
+  queue_metric_definition: null
+  telemetry_sampling_seconds: null
+  clock_alignment: null
+outcomes: {sent: null, completed: null, failed: null, timed_out: null}
+artifacts: [] # Each entry: relative path, sha256, role; raw and derived kept separate.
+collection_gaps: []
+deviations: []

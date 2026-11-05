@@ -1,82 +1,9 @@
-# Reference Environment
+# Reference environment selection
 
-## Purpose
+Status: Unselected for the current POC. The July Windows/WSL2/RTX 5090 proposal is historical and has not been verified as available.
 
-This document defines the reference environment used to generate benchmark telemetry throughout the AWCDE research project.
+Choose one accessible environment with a stable endpoint, sufficient model capacity, exportable server queue metrics and access to record the exact runtime configuration. Use a single fixed serving instance initially so aggregation and routing do not obscure queue evidence.
 
-Maintaining a documented reference environment improves reproducibility, simplifies telemetry provider evaluation, and provides provenance for benchmark evidence used during behavioural model validation.
+Record hardware model and count, memory, host and client placement, OS, driver, runtime image digest or commit, model and tokenizer revisions, quantization, cache and batching settings, power limits, background activity and thermal conditions. Redact credentials while retaining the information needed for interpretation.
 
-The reference environment is expected to evolve throughout the project and will be updated as new hardware and software platforms are adopted.
-
----
-
-# Phase 1 Reference Environment
-
-## Host Operating System
-
-Windows 11 Pro
-
-## Linux Environment
-
-Windows Subsystem for Linux (WSL2)
-
-Ubuntu 24.04 LTS
-
----
-
-## Hardware
-
-### CPU
-
-*TBD*
-
-### GPU
-
-*NVIDIA RTX 5090*
-
-### Memory
-
-*TBD*
-
-### Storage
-
-*TBD*
-
----
-
-## Software
-
-| Component | Version |
-|-----------|---------|
-| Python | TBD |
-| CUDA | TBD |
-| NVIDIA Driver | TBD |
-| vLLM | TBD |
-| GuideLLM | TBD |
-| NVIDIA GenAI-Perf | TBD |
-
----
-
-## Purpose
-
-This environment is used to:
-
-- Evaluate telemetry providers
-- Generate benchmark telemetry
-- Validate the behavioural model
-- Produce reference Workload Signatures
-
-The environment is intentionally kept stable throughout Phase 1 to minimise external variables during research.
-
----
-
-# Future Reference Platforms
-
-Future phases may introduce additional reference environments including:
-
-- NVIDIA DGX Spark
-- OpenShift AI
-- Multi-node GPU environments
-- CPU-only inference platforms
-
-Additional platforms will be used to validate the portability of the behavioural model rather than redefine it.
+A smoke test must demonstrate successful streaming requests, actual input/output accounting and readable queue telemetry. Resource access and compatible model/tool choices are prerequisites to execution, not facts established by this repo.

@@ -1,16 +1,3 @@
-# Examples
+# Report examples
 
-This directory contains representative examples used throughout the AWCDE project.
-
-Examples include:
-
-- Benchmark telemetry inputs
-- Normalized telemetry
-- Workload signatures
-- Workload classifications
-- Infrastructure recommendations
-- Knowledge base rules
-- End-to-end example pipelines
-
-These examples serve as reference implementations for documentation,
-development, testing, and future demonstrations.
+No measured examples are available. [finding-template.md](finding-template.md) is a blank reporting aid, not a validated output contract or experimental result. Label future synthetic fixtures explicitly and keep them separate from measured evidence.
