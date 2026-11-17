@@ -10,3 +10,7 @@ No application code, benchmark results or validated workload signatures were int
 
 Prepared the realignment on the public repository after confirming main matches the July snapshot. Recorded the separate implementation in PR #14 and verified feature-path resolution in a Git checkout. PR #14 is unchanged.
 Added the explicit Spec Kit feature selector required by the retained tooling.
+
+## 17 November 2026
+
+Proposed constitution v3.0.0 and ADR-0011 to capture an optional evidence-grounded LLM advisory layer. Added its input/output contract, failure handling and evaluation gate; aligned scope across active docs and templates. Replaced proposed Jira tracking with links to GitHub #16–25. The core experiment and initial budget remain unchanged. No code, benchmark results, LLM integration or validated recommendations were introduced.

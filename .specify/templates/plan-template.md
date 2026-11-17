@@ -46,7 +46,8 @@
 - [ ] Uncertainty and insufficient-evidence behaviour specified.
 - [ ] Pilot and validation separated; criteria frozen before validation.
 - [ ] Added value assessed against simple baselines.
-- [ ] No speculative API, knowledge base, recommendations or universal signature.
+- [ ] No speculative API, knowledge base or universal signature; core recommendation exclusion preserved.
+- [ ] Any advisory extension follows ADR-0011: separate gate/budget, grounded outputs, validation, abstention, no execution and plain-report fallback.
 
 ## Project Structure
 

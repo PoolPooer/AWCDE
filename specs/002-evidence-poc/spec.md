@@ -27,4 +27,8 @@ Thresholds, sample size and uncertainty method remain blocked on pilot evidence.
 
 ## Exclusions and governing decision
 
-Follow [constitution v2.0.0](../../.specify/memory/constitution.md) and [ADR-0010](../../docs/adr/0010-evidence-first-poc.md). The archived API/signature/recommendation contracts do not apply.
+Follow [constitution v3.0.0](../../.specify/memory/constitution.md) and [ADR-0010](../../docs/adr/0010-evidence-first-poc.md). The archived API/signature/recommendation contracts do not apply.
+
+## Planned advisory extension
+
+[ADR-0011](../../docs/adr/0011-evidence-grounded-advisory-layer.md) permits a separately evaluated LLM layer after core findings are validated. The core requirements and acceptance above remain unchanged. The extension contract, evaluation cases and gates are defined in [the advisory design](../../docs/architecture/llm-advisory-layer.md) and tracked in [#25](https://github.com/PoolPooer/AWCDE/issues/25). It must preserve evidence status, uncertainty and scope, cite support, separate advice from proposed tests, and fall back to the plain report on invalid output. No recommendation capability is currently implemented.

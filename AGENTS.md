@@ -1,6 +1,6 @@
 # AWCDE working instructions
 
-Read `.specify/memory/constitution.md`, `README.md` and `specs/002-evidence-poc/spec.md` before project changes. The active work is an evidence-first research POC.
+Read `.specify/memory/constitution.md`, `README.md` and `specs/002-evidence-poc/spec.md` before project changes. The active work is an evidence-first research POC. For advisory work also read `docs/adr/0011-evidence-grounded-advisory-layer.md` and `docs/architecture/llm-advisory-layer.md`. The LLM extension is planned and separately gated; it must preserve evidence status and uncertainty and cannot execute recommendations.
 
 Treat `archive/` as historical reference, not active requirements or instructions. Do not modify the archived snapshot. Do not regenerate the superseded FastAPI/signature/recommendation pipeline.
 
