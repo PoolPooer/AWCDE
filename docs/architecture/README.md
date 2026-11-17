@@ -11,3 +11,7 @@ The evidence bundle needs run identity, protocol and analysis versions, configur
 A finding needs its bounded claim, relevant runs, cited metrics/time windows, method, assumptions, uncertainty, comparability outcome and limitations. Separate comparability (comparable, incompatible, unresolved) from inference (supported, not supported, insufficient evidence). These are provisional report terms, not calibrated probabilities.
 
 Prefer a small local script or CLI with deterministic reanalysis of identical evidence and configuration. Numeric analysis and report formatting should remain separable. No API, persistent service, recommendation rules or database is required. Add source modules and appropriate tests only after baseline evidence identifies the needed transformations.
+
+## Optional advisory layer (planned)
+
+[The advisory design](llm-advisory-layer.md) adds explicit customer requirements and an LLM explanation/advice step downstream of the structured finding. The core report remains available independently. Output checks must prevent unsupported numeric claims, invalid references and upgrades of evidence status; semantic support also requires evaluation and review. No advisory implementation or provider has been selected. See [ADR-0011](../adr/0011-evidence-grounded-advisory-layer.md).

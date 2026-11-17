@@ -84,7 +84,10 @@
   Constitution Alignment (AWCDE): State the bounded research question, evidence
   requirements, comparability checks, uncertainty and abstention behaviour.
   Define repeatability and added-value checks. Preserve environment context.
-  Do not assume fixed signature dimensions or deployment recommendations.
+  Do not assume fixed signature dimensions or validated deployment recommendations.
+  For an advisory extension, follow ADR-0011: preserve evidence status, cite support,
+  separate proposed tests from supported advice, validate output and evaluate against
+  the same plain report. No autonomous execution or automatic budget expansion.
 -->
 
 ### Functional Requirements
